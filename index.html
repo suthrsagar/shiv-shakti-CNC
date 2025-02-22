@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>शिव शक्ति सीएनसी डिजायनर सिणधरी</title>
+    <meta name="theme-color" content="red">
+    <title>शिव शक्ति सीएनसी डिजाइनर सिणधरी</title>
     
     <!-- Favicon -->
     <link rel="icon" href="logo1.PNG" type="image/x-icon">
@@ -14,14 +15,40 @@
             font-family: Arial, sans-serif;
             background-color: #f8f8f8;
             margin: 0;
-            padding: 0;
+            padding-top: 60px;
+            background: linear-gradient(270deg, #c4a3a4, #fad0c4, #c57780 , #ff9a9e, #7f659e, #b9a2a5);
+            background-size: 600% 600%;
+            animation: gradientBG 5s  infinite;
+            
+            padding-top: 60px;
+            margin: 0;
+        }
+
+        @keyframes gradientBG {
+            0% {
+                background-position: 0% 20%;
+            }
+
+            20% {
+                background-position: 20% 50%;
+            }
+
+            50% {
+                background-position: 50% 70%;
+            }
+            70% {
+                background-position: 70% 100%;
+            }
+            100% {
+                background-position: 100% 0%;
+            }
         }
 
         /* Header Styles */
         header {
-            background-color: #333;
+            background: linear-gradient(to right, #333, #555);
             color: white;
-            padding: 10px 20px;
+            padding: 20px 20px;
             position: fixed;
             top: 0;
             left: 0;
@@ -29,90 +56,45 @@
             z-index: 1000;
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            justify-content: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
         .logo {
             font-size: 1.5rem;
             font-weight: bold;
-            flex-grow: 1;
-            text-align: left;
-        }
-
-        .menu-toggle {
-            display: none;
-            font-size: 24px;
-            background: none;
-            border: none;
-            color: white;
-            cursor: pointer;
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%) translateY(-50%);
-            top: 50%;
+            margin-left: 20px;
         }
 
         nav {
             flex-grow: 1;
-            display: flex;
-            justify-content: center;
+            text-align: center;
         }
 
-        .nav-links {
-            list-style: none;
+        nav ul {
+            list-style-type: none;
             display: flex;
-            gap: 20px;
+            justify-content: center;
             padding: 0;
         }
 
-        .nav-links a {
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
             color: white;
             text-decoration: none;
             font-size: 1rem;
+            transition: color 0.3s, background-color 0.3s;
             padding: 8px 12px;
-            transition: 0.3s;
-        }
-
-        .nav-links a:hover {
-            background-color: white;
-            color: #333;
             border-radius: 5px;
         }
 
-        @media (max-width: 768px) {
-            .menu-toggle {
-                display: block;
-                left: 50%;
-                transform: translateX(-50%) translateY(-50%); /* Center horizontally */
-            }
-
-            nav {
-                position: absolute;
-                top: 50px;
-                left: 0;
-                width: 100%;
-                background-color: #333;
-                text-align: center;
-                display: none;
-                z-index: 999;
-            }
-
-            .nav-links {
-                flex-direction: column;
-                padding: 10px 0;
-            }
-
-            nav.active {
-                display: block;
-            }
-
-            .nav-links a {
-                padding: 15px;
-            }
-
-            .logo {
-                font-size: 1.2rem;
-            }
+        nav ul li a:hover {
+            background-color: white;
+            color: #333;
+            box-shadow: 0px 4px 8px rgba(255, 255, 255, 0.2);
         }
 
         /* Hero Section */
@@ -136,7 +118,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.5); /* Adding a dark overlay */
+            background: rgba(0, 0, 0, 0.5);
             z-index: 1;
         }
 
@@ -146,13 +128,13 @@
         }
 
         .hero h1 {
-            font-size: 2.5rem;
+            font-size: 2rem;
             margin-bottom: 20px;
-            background-color: gray;
+            
             padding: 10px;
             border-radius: 5px;
             color: red;
-            text-shadow: 2px 2px 01px rgba(0, 0, 0, 0.5);
+            text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.5);
         }
 
         .hero p {
@@ -183,11 +165,24 @@
             padding: 10px;
             margin-top: 20px;
         }
+        contact-info {
+            text-align: center;
+            line-height: 1.8;
+            color: #555; 
+            
+        }
+     strong, p, .sagar {
+            text-decoration: none;
+        }
 
         /* Mobile-specific adjustments */
-        @media (max-width: 480px) {
+        @media (max-width: 768px) {
+            .logo {
+                display: none;
+            }
+
             .hero h1 {
-                font-size: 2rem;
+                font-size: 1.8rem;
             }
 
             .hero p {
@@ -205,32 +200,33 @@
 <body>
     <header>
         <div class="logo">शिव शक्ति CNC</div>
-        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
-        <nav id="navMenu">
-            <ul class="nav-links">
+        <nav>
+            <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="services.html">Services</a></li>
-                <li><a href="contact.html">Contact</a></li>
+             
             </ul>
         </nav>
     </header>
 
     <section class="hero">
-        <h1>शिव शक्ति सीएनसी डिजायनर सिणधरी</h1>
+        <h1>शिव शक्ति सीएनसी डिजाइनर सिणधरी</h1>
         <p>हम आपके सपनों को हकीकत में बदलने के लिए उच्च गुणवत्ता वाली CNC सेवाएँ प्रदान करते हैं।</p>
         <button onclick="location.href='services.html'">हमारी सेवाएँ देखें</button>
+        <div class="contact-info">
+            <p><strong>दुकान का नाम:</strong> शिव शक्ति सीएनसी डिजाइनर सिणधरी</p>
+            <p><strong>पता:</strong> सिणधरी,  राजस्थान, भारत</p>
+            <p><strong>मोबाइल:</strong> <a class="sagar" href="tel:+919636957746"> 9636957746</a></p>
+            <p><strong>Email:</strong> <a  class="sagar" href="mailto:info@shivshakticnc.com">  sutharsagar710@gmail.com</a></p>
+        </div>
     </section>
 
     <footer>
         &copy; 2025 शिव शक्ति सीएनसी डिजायनर सिणधरी | सभी अधिकार सुरक्षित
     </footer>
-
-    <script>
-        function toggleMenu() {
-            document.getElementById('navMenu').classList.toggle('active');
-        }
-    </script>
 </body>
 
 </html>
+
+   
